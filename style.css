@@ -12,6 +12,13 @@
   --Light-Grayish-Magenta: hsl(300, 24%, 96%);
 }
 
+body {
+  background-image: url('./images/bg-pattern-top-mobile.svg'),
+    url('./images/bg-pattern-bottom-mobile.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left, bottom right;
+}
+
 /* ========== start of introduction section ==========*/
 main {
   padding: 3rem 0;
@@ -68,9 +75,9 @@ main {
 }
 /* ========== end of ratings section ==========*/
 /* ========== start of feedback section =========*/
-.feedback {
+/* .feedback {
   display: grid;
-}
+} */
 .feedback .card {
   border: solid black 1px;
   /* height: 15rem; */
@@ -113,3 +120,126 @@ main {
 }
 
 /* ========== end of feedback section =========*/
+/* ========== media queries ========= */
+
+@media (min-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  body {
+    background-image: url('./images/bg-pattern-top-desktop.svg'),
+      url('./images/bg-pattern-bottom-desktop.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, bottom right;
+  }
+  main {
+    padding-top: 10rem;
+    display: grid;
+    grid-template-rows: repeat(100, 1%);
+    grid-template-columns: repeat(10, 10%);
+    /* width: 80%; */
+  }
+
+  .intro {
+    grid-column: 1/5;
+    grid-row: 1/11;
+  }
+  .intro p {
+    text-align: left;
+  }
+
+  .intro p:nth-child(1) {
+    font-size: 2.8rem;
+  }
+  .ratings {
+    grid-column: 6/11;
+    grid-row: 1/11;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .ratings .rate {
+    height: 4rem;
+  }
+  .ratings .rate:nth-child(1) {
+    grid-column: 1/8;
+    grid-row: 1/2;
+  }
+  .ratings .rate:nth-child(2) {
+    grid-column: 2/9;
+    grid-row: 2/3;
+  }
+  .ratings .rate:nth-child(3) {
+    grid-column: 3/10;
+    grid-row: 3/4;
+  }
+
+  /* ======== cards ======== */
+  .feedback {
+    grid-column: 1/11;
+    grid-row: 50/100;
+    display: grid;
+    grid-template-columns: repeat(3, 32%);
+    grid-template-rows: repeat(25, 5%);
+    column-gap: 1rem;
+  }
+  .feedback .card:nth-child(1) {
+    grid-column: 1/2;
+    grid-row: 1/21;
+  }
+
+  .feedback .card:nth-child(2) {
+    grid-column: 2/3;
+    grid-row: 2/22;
+  }
+  .feedback .card:nth-child(3) {
+    grid-column: 3/4;
+    grid-row: 3/23;
+  }
+}
+@media (min-width: 1440px) {
+  html {
+    font-size: 17px;
+  }
+
+  main {
+    padding-top: 8rem;
+  }
+  .intro p {
+    text-align: left;
+  }
+  .intro p:nth-child(1) {
+    font-size: 3.5rem;
+  }
+  .ratings {
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .ratings .rate {
+    font-size: 0.9rem;
+    flex-direction: row;
+    height: 3.5rem;
+  }
+
+  .feedback {
+    column-gap: 2rem;
+    grid-row: 45/100;
+  }
+
+  .feedback .card p {
+    font-size: 1.1rem;
+  }
+
+  .feedback .card:nth-child(1) {
+    grid-column: 1/2;
+    grid-row: 1/16;
+  }
+
+  .feedback .card:nth-child(2) {
+    grid-column: 2/3;
+    grid-row: 2/17;
+  }
+  .feedback .card:nth-child(3) {
+    grid-column: 3/4;
+    grid-row: 3/18;
+  }
+}
